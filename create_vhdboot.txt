@@ -1,0 +1,4 @@
+select vdisk file=”m:\sources\Windows10.vhdx”
+attach vdisk
+
+list volume

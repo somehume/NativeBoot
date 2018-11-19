@@ -1,0 +1,14 @@
+select disk 0 
+clean 
+convert gpt 
+rem == 1. System partition ========================= 
+create partition efi size=500 
+format quick fs=fat32 label="System" 
+assign letter="S" 
+rem == 2. Microsoft Reserved (MSR) partition ======= 
+create partition msr size=128 
+rem == 3. Main partition =========================== 
+create partition primary  
+format quick fs=ntfs label="Main" 
+assign letter="M" 
+exit
